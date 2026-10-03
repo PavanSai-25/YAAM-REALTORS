@@ -1,26 +1,222 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
+/*
+ * Yaam brand tokens — derived from the visiting card (deep royal navy panel,
+ * bright blue house mark, cyan accents on white) and modernised.
+ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-navy-950: #04112e;
+  --color-navy-900: #062b67;
+  --color-navy-800: #0a3880;
+  --color-brand: #0645a5;
+  --color-brand-600: #0a52c2;
+  --color-brand-accent: #1597e5;
+  --color-brand-cyan: #5cc8f5;
+  --color-brand-light: #eaf5ff;
+  --color-canvas: #f7f9fc;
+  --color-ink: #101828;
+  --color-ink-soft: #344054;
+  --color-ink-muted: #667085;
+  --color-line: #e4e7ec;
+  --color-whatsapp: #128c4a;
+  --color-whatsapp-hover: #0e7a3f;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.06);
+  --shadow-lift: 0 12px 32px -8px rgb(6 43 103 / 0.18), 0 4px 8px -4px rgb(16 24 40 / 0.06);
+  --shadow-float: 0 24px 48px -12px rgb(4 17 46 / 0.28);
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #ffffff;
+  --foreground: #101828;
+  --card: #ffffff;
+  --card-foreground: #101828;
+  --popover: #ffffff;
+  --popover-foreground: #101828;
+  --primary: #0645a5;
+  --primary-foreground: #ffffff;
+  --secondary: #f2f4f7;
+  --secondary-foreground: #101828;
+  --muted: #f2f4f7;
+  --muted-foreground: #667085;
+  --accent: #eaf5ff;
+  --accent-foreground: #062b67;
+  --destructive: #c4320a;
+  --border: #e4e7ec;
+  --input: #d0d5dd;
+  --ring: #1597e5;
+  --chart-1: #0645a5;
+  --chart-2: #1597e5;
+  --chart-3: #5cc8f5;
+  --chart-4: #062b67;
+  --chart-5: #98a2b3;
+  --radius: 0.625rem;
+  --sidebar: #04112e;
+  --sidebar-foreground: #c7d2e8;
+  --sidebar-primary: #1597e5;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgb(255 255 255 / 0.07);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgb(255 255 255 / 0.08);
+  --sidebar-ring: #1597e5;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-ink tracking-tight;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: #cfe8fb;
+    color: #062b67;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-accent);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1320px] px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply text-[0.72rem] font-semibold tracking-[0.16em] text-brand uppercase;
+  }
+  .display {
+    @apply text-[2.4rem] leading-[1.03] font-semibold tracking-[-0.035em] sm:text-6xl lg:text-[4.5rem];
+  }
+  .section-title {
+    @apply text-[1.75rem] leading-[1.12] font-semibold tracking-[-0.03em] sm:text-4xl lg:text-[2.75rem];
+  }
+  .section-y {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* CSS-only entrance so above-the-fold text paints before hydration. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll reveal (components/motion/reveal.tsx). Hidden only when JS can reveal it. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal,
+  .reveal-group > .reveal-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal[data-shown],
+  .reveal-group[data-shown] > .reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-group > .reveal-item:nth-child(2) { transition-delay: calc(var(--stagger) * 1); }
+  .reveal-group > .reveal-item:nth-child(3) { transition-delay: calc(var(--stagger) * 2); }
+  .reveal-group > .reveal-item:nth-child(4) { transition-delay: calc(var(--stagger) * 3); }
+  .reveal-group > .reveal-item:nth-child(5) { transition-delay: calc(var(--stagger) * 4); }
+  .reveal-group > .reveal-item:nth-child(6) { transition-delay: calc(var(--stagger) * 5); }
+  .reveal-group > .reveal-item:nth-child(n + 7) { transition-delay: calc(var(--stagger) * 6); }
 }
