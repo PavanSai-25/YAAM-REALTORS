@@ -43,3 +43,6 @@ next-env.d.ts
 # local data backend (dev only)
 /.data
 !.env.example
+
+# local tool output
+/.gstack
