@@ -27,9 +27,13 @@ function secret() {
   try {
     secretCache = readFileSync(file, "utf8").trim()
   } catch {
-    mkdirSync(DATA_DIR, { recursive: true })
     secretCache = randomBytes(48).toString("base64url")
-    writeFileSync(file, secretCache, { mode: 0o600 })
+    try {
+      mkdirSync(DATA_DIR, { recursive: true })
+      writeFileSync(file, secretCache, { mode: 0o600 })
+    } catch {
+      // In read-only serverless environments, keep the secret cached in memory
+    }
   }
   return secretCache
 }
