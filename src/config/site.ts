@@ -15,8 +15,8 @@ function digits(value: string | undefined) {
 const phone = process.env.YAAM_PHONE ?? "+91 79939 83540"
 
 export const DEFAULT_SITE_SETTINGS: SiteSettings = {
-  companyName: "Yaam Realtors & Consultants",
-  shortName: "Yaam Realtors",
+  companyName: "YAAM Realtors & Consultants",
+  shortName: "YAAM Realtors",
   establishedYear: 2006,
   contactPerson: "Ankesh",
   phone,

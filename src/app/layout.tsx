@@ -15,16 +15,16 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Yaam Realtors & Consultants — Property in Hyderabad & Secunderabad",
-    template: "%s | Yaam Realtors",
+    default: "YAAM Realtors & Consultants — Property in Hyderabad & Secunderabad",
+    template: "%s | YAAM Realtors",
   },
   description:
-    "Buy, sell and rent residential, commercial and land properties across Hyderabad and Secunderabad with Yaam Realtors & Consultants. Established 2006.",
-  applicationName: "Yaam Realtors",
+    "Buy, sell and rent residential, commercial and land properties across Hyderabad and Secunderabad with YAAM Realtors & Consultants. Established 2006.",
+  applicationName: "YAAM Realtors",
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "Yaam Realtors & Consultants",
+    siteName: "YAAM Realtors & Consultants",
   },
   twitter: { card: "summary_large_image" },
   formatDetection: { telephone: false },

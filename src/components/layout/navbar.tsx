@@ -73,7 +73,7 @@ export function Navbar({ contact }: { contact: Contact }) {
         Skip to content
       </a>
       <nav aria-label="Primary" className="container-page flex h-[4.25rem] items-center gap-6">
-        <Link href="/" aria-label="Yaam Realtors — home" className="shrink-0 rounded-md">
+        <Link href="/" aria-label="YAAM Realtors — home" className="shrink-0 rounded-md">
           <Logo tone={solid ? "dark" : "light"} />
         </Link>
 

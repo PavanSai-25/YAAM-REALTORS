@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <main className="relative flex min-h-dvh flex-col bg-canvas">
       <div className="container-page py-6">
-        <Link href="/" aria-label="Yaam Realtors — home">
+        <Link href="/" aria-label="YAAM Realtors — home">
           <Logo />
         </Link>
       </div>

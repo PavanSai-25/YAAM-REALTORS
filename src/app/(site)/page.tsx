@@ -55,7 +55,7 @@ export default async function HomePage() {
     <>
       {/* HERO */}
       <section aria-labelledby="hero-title" className="relative isolate flex min-h-[100svh] flex-col overflow-visible bg-navy-950">
-        <HeroParallax src="/demo/hero-villa-dusk.jpg" alt="" />
+        <HeroParallax src="/demo/hero-villa-dusk.jpg" videoSrc="/demo/hero-properties-flow.mp4" alt="" />
         <div className="absolute inset-0 bg-[linear-gradient(100deg,rgb(4_17_46/0.88)_0%,rgb(4_17_46/0.55)_45%,rgb(4_17_46/0.1)_75%)]" />
         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-navy-950/80 to-transparent" />
 

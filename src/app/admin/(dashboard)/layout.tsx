@@ -5,7 +5,7 @@ import { getAdminStore } from "@/lib/data"
 import { isStaff, requirePageUser } from "@/lib/auth/session"
 
 export const metadata: Metadata = {
-  title: { default: "Admin", template: "%s · Yaam Admin" },
+  title: { default: "Admin", template: "%s · YAAM Admin" },
   robots: { index: false, follow: false },
 }
 

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og"
 
-export const alt = "Yaam Realtors & Consultants — property in Hyderabad & Secunderabad"
+export const alt = "YAAM Realtors & Consultants — property in Hyderabad & Secunderabad"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -23,8 +23,10 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div style={{ width: 64, height: 64, borderRadius: 14, background: "#1597e5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 36, fontWeight: 700 }}>Y</div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 36, fontWeight: 700 }}>Yaam</div>
-            <div style={{ fontSize: 16, letterSpacing: 4, opacity: 0.7 }}>REALTORS &amp; CONSULTANTS</div>
+            <div style={{ fontSize: 36, fontWeight: 700, display: "flex", gap: 10 }}>
+              <span style={{ color: "#38bdf8" }}>YAAM</span>
+              <span>REALTORS</span>
+            </div>
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
