@@ -24,8 +24,8 @@ export const BACKEND: Backend = resolveBackend()
 
 export function assertLocalBackendAllowed() {
   if (BACKEND === "local" && process.env.VERCEL) {
-    throw new Error(
-      "The local data backend cannot run on Vercel. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.",
+    console.warn(
+      "[YAAM] Running with demo data on Vercel. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY for production database.",
     )
   }
 }
